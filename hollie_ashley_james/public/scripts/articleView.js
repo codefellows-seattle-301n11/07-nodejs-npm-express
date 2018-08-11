@@ -128,11 +128,11 @@ articleView.submit = event => {
   // COMMENTED: Where is this function defined? When is this function called? What event ultimately triggers its execution?
   // This function is defined on the article.js page. This event is called when an event is triggered upon submitting the new article form. After the new Article is created, the insertRecord() function triggers which will post the article to the page.
   article.insertRecord();
-}
+};
 
 articleView.initIndexPage = () => {
   Article.all.forEach(article =>{
-    $('#articles').append(article.toHtml())
+    $('#articles').append(article.toHtml());
   });
 
   articleView.populateFilters();
