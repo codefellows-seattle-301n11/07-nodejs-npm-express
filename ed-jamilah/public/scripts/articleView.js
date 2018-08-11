@@ -74,8 +74,8 @@ articleView.setTeasers = () => {
   });
 };
 
-// COMMENT: When/where is this function invoked? What event ultimately triggers its execution? Explain the sequence of code execution when this function is invoked.
-// PUT YOUR RESPONSE HERE
+// COMMENTED: When/where is this function invoked? What event ultimately triggers its execution? Explain the sequence of code execution when this function is invoked.
+// The function is invoked on new.html 
 articleView.initNewArticlePage = () => {
   $('.tab-content').show();
   $('#export-field').hide();
@@ -87,8 +87,8 @@ articleView.initNewArticlePage = () => {
   $('#new-form').on('submit', articleView.submit);
 };
 
-// COMMENT: When is this function called? What event ultimately triggers its execution?
-// PUT YOUR RESPONSE HERE
+// COMMENTED: When is this function called? What event ultimately triggers its execution?
+// Any changes to the text area of the form in the initNewARticlePage function above
 articleView.create = () => {
   let article;
   $('#articles').empty();
@@ -112,8 +112,8 @@ articleView.create = () => {
   $('#article-json').val(`${JSON.stringify(article)},`);
 };
 
-// COMMENT: When is this function called? What event ultimately triggers its execution?
-// PUT YOUR RESPONSE HERE
+// COMMENTED: When is this function called? What event ultimately triggers its execution?
+// The articleView.submit is called on the articleView file using on submit
 articleView.submit = event => {
   event.preventDefault();
   let article = new Article({
@@ -125,8 +125,8 @@ articleView.submit = event => {
     publishedOn: $('#article-published:checked').length ? new Date() : null
   });
 
-  // COMMENT: Where is this function defined? When is this function called? What event ultimately triggers its execution?
-  // PUT YOUR RESPONSE HERE
+  // COMMENTED: Where is this function defined? When is this function called? What event ultimately triggers its execution?
+  // article.insertRecord function is defined on article.js; the event that triggers it's execution is the on submit action on page from input from the user
   article.insertRecord();
 };
 
