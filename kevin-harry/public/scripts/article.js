@@ -14,7 +14,7 @@ Article.all = [];
 Article.prototype.toHtml = function() {
   let template = Handlebars.compile($('#article-template').text());
 
-  this.daysAgo = parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000);
+  this.daysAgo = parseInt((new Date() - new Date(this.publishedOn))/1000/60/60/24);
   this.publishStatus = this.publishedOn ? `published ${this.daysAgo} days ago` : '(draft)';
   this.body = marked(this.body);
 
@@ -25,7 +25,7 @@ Article.loadAll = articleData => {
   articleData.sort((a,b) => (new Date(b.publishedOn)) - (new Date(a.publishedOn)))
 
   articleData.forEach(articleObject => Article.all.push(new Article(articleObject)))
-}
+};
 
 Article.fetchAll = () => {
   if (localStorage.rawData) {
@@ -50,7 +50,12 @@ Article.prototype.insertRecord = function(callback) {
       console.log(data);
 
       // COMMENT: What is the purpose of this line? Is the callback invoked when this method is called? Why or why not?
-      // PUT YOUR RESPONSE HERE
+      // This line checks that a callback was input when the insertRecord function was run. If there was an input callback function, it is run here; if not, nothing further happens. So... this means that the callback input parameter is optional.
       if (callback) callback();
-    })
+    });
+};
+
+Article.prototype.createArticle = function() {
+  console.log("CREATE ARTICLE!!");
+  $.get('/create-article');
 };

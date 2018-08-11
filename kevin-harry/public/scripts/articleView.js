@@ -75,7 +75,7 @@ articleView.setTeasers = () => {
 };
 
 // COMMENT: When/where is this function invoked? What event ultimately triggers its execution? Explain the sequence of code execution when this function is invoked.
-// PUT YOUR RESPONSE HERE
+// This is called from a script tag at the bottom of the new.html page.
 articleView.initNewArticlePage = () => {
   $('.tab-content').show();
   $('#export-field').hide();
@@ -128,11 +128,11 @@ articleView.submit = event => {
   // COMMENT: Where is this function defined? When is this function called? What event ultimately triggers its execution?
   // PUT YOUR RESPONSE HERE
   article.insertRecord();
-}
+};
 
 articleView.initIndexPage = () => {
   Article.all.forEach(article =>{
-    $('#articles').append(article.toHtml())
+    $('#articles').append(article.toHtml());
   });
 
   articleView.populateFilters();
