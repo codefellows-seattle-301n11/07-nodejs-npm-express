@@ -74,8 +74,8 @@ articleView.setTeasers = () => {
   });
 };
 
-// COMMENT: When/where is this function invoked? What event ultimately triggers its execution? Explain the sequence of code execution when this function is invoked.
-// PUT YOUR RESPONSE HERE
+// COMMENTED: When/where is this function invoked? What event ultimately triggers its execution? Explain the sequence of code execution when this function is invoked.
+// This function is invoked at the bottom of the new.html page (in a script). The event triggers after the new.html page has finished loading. It first shows the tab-content class section (which is the form) and then hides the export-field id section. Then when the article-json id section gains focus, it selects that item. When the new-form id section has a change made to it, the articleView.create function is executed. When the submit button is clicked, articleView.submit() is invoked.
 articleView.initNewArticlePage = () => {
   $('.tab-content').show();
   $('#export-field').hide();
@@ -87,8 +87,7 @@ articleView.initNewArticlePage = () => {
   $('#new-form').on('submit', articleView.submit);
 };
 
-// COMMENT: When is this function called? What event ultimately triggers its execution?
-// PUT YOUR RESPONSE HERE
+// COMMENTED: When is this function called? What event ultimately triggers its execution?
 articleView.create = () => {
   let article;
   $('#articles').empty();
@@ -112,8 +111,8 @@ articleView.create = () => {
   $('#article-json').val(`${JSON.stringify(article)},`);
 };
 
-// COMMENT: When is this function called? What event ultimately triggers its execution?
-// PUT YOUR RESPONSE HERE
+// COMMENTED: When is this function called? What event ultimately triggers its execution?
+// PUT YOUR RESPONSE HERE: The function is called during the creation of a new artice - in the articleView.initNewArticlePage function - and is ultimately triggered by the submit button.
 articleView.submit = event => {
   event.preventDefault();
   let article = new Article({
@@ -128,11 +127,11 @@ articleView.submit = event => {
   // COMMENTED: Where is this function defined? When is this function called? What event ultimately triggers its execution?
   // This function is defined on the article.js page. This event is called when an event is triggered upon submitting the new article form. After the new Article is created, the insertRecord() function triggers which will post the article to the page.
   article.insertRecord();
-}
+};
 
 articleView.initIndexPage = () => {
   Article.all.forEach(article =>{
-    $('#articles').append(article.toHtml())
+    $('#articles').append(article.toHtml());
   });
 
   articleView.populateFilters();
