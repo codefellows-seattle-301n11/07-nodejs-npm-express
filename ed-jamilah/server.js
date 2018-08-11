@@ -17,4 +17,4 @@ app.post('/articles', (request, response) => {
   response.status(201).json(request.body);
 });
 
-app.listen(3000, () => console.log('Are We Live'));
+app.listen(PORT, () => console.log('Are We Live'));
