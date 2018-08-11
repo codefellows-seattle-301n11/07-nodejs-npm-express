@@ -22,26 +22,25 @@ Article.prototype.toHtml = function() {
 };
 
 Article.loadAll = articleData => {
-  articleData.sort((a,b) => (new Date(b.publishedOn)) - (new Date(a.publishedOn)))
+  articleData.sort((a,b) => (new Date(b.publishedOn)) - (new Date(a.publishedOn)));
 
-  articleData.forEach(articleObject => Article.all.push(new Article(articleObject)))
-}
+  articleData.forEach(articleObject => Article.all.push(new Article(articleObject)));
+};
 
 Article.fetchAll = () => {
   if (localStorage.rawData) {
     Article.loadAll(JSON.parse(localStorage.rawData));
     articleView.initIndexPage();
   } else {
-    $.getJSON('/data/hackerIpsum.json')
-      .then(data => {
-        Article.loadAll(data);
-        localStorage.rawData = JSON.stringify(data);
-        articleView.initIndexPage();
-      }, err => {
-        console.error(err);
-      });
+    $.getJSON('data/hackerIpsum.json').then(data => {
+      Article.loadAll(data);
+      localStorage.rawData = JSON.stringify(data);
+      articleView.initIndexPage();
+    }, err => {
+      console.error(err);
+    });
   }
-}
+};
 
 // REVIEW: This new prototype method on the Article object constructor will allow us to create a new article from the new.html form page, and submit that data to the back-end. We will see this log out to the server in our terminal!
 Article.prototype.insertRecord = function(callback) {
@@ -52,5 +51,5 @@ Article.prototype.insertRecord = function(callback) {
       // COMMENT: What is the purpose of this line? Is the callback invoked when this method is called? Why or why not?
       // PUT YOUR RESPONSE HERE
       if (callback) callback();
-    })
+    });
 };
