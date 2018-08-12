@@ -74,7 +74,8 @@ articleView.setTeasers = () => {
   });
 };
 
-// COMMENT: When/where is this function invoked? What event ultimately triggers its execution? Explain the sequence of code execution when this function is invoked.
+// COMMENTed: When/where is this function invoked? What event ultimately triggers its execution? Explain the sequence of code execution when this function is invoked.
+//Insert comment below
 // This is called from a script tag at the bottom of the new.html page.
 articleView.initNewArticlePage = () => {
   $('.tab-content').show();
@@ -87,8 +88,9 @@ articleView.initNewArticlePage = () => {
   $('#new-form').on('submit', articleView.submit);
 };
 
-// COMMENT: When is this function called? What event ultimately triggers its execution?
+// COMMENTed: When is this function called? What event ultimately triggers its execution?
 // PUT YOUR RESPONSE HERE
+// This event listener is called whenever there is a change on the new.html form.  Any typing on the form in an input or text area field.  
 articleView.create = () => {
   let article;
   $('#articles').empty();
@@ -112,8 +114,10 @@ articleView.create = () => {
   $('#article-json').val(`${JSON.stringify(article)},`);
 };
 
-// COMMENT: When is this function called? What event ultimately triggers its execution?
+// COMMENTed: When is this function called? What event ultimately triggers its execution?
 // PUT YOUR RESPONSE HERE
+// This function is called when someone clicks the submit button. There is an event listener that creates this. The event listener is created in the  articleView.initNewArticlePage = () => {
+
 articleView.submit = event => {
   event.preventDefault();
   let article = new Article({
@@ -125,8 +129,9 @@ articleView.submit = event => {
     publishedOn: $('#article-published:checked').length ? new Date() : null
   });
 
-  // COMMENT: Where is this function defined? When is this function called? What event ultimately triggers its execution?
+  // COMMENTed: Where is this function defined? When is this function called? What event ultimately triggers its execution?
   // PUT YOUR RESPONSE HERE
+  // Article.prototype.insertRecord = function(callback) { within article js on line 47.  It is called when event handler for submit button is called.  User clicks the submit button.  
   article.insertRecord();
 };
 

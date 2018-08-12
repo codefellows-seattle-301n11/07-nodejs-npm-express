@@ -28,3 +28,9 @@ app.post('/articles', (request, response) => {
   console.log(request.body);
   response.status(201).json(request.body);
 });
+
+//The 404 Route (ALWAYS Keep this as the last route)
+app.get('*', function (req, res) {
+  res.send('what???', 404);
+});
+//added this 404 route from: https://stackoverflow.com/questions/6528876/how-to-redirect-404-errors-to-a-page-in-expressjs
