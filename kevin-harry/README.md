@@ -51,4 +51,6 @@ Date:   Tue Aug 7 23:25:18 2018 -0700
 
 ## Credits and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+https://stackoverflow.com/questions/6528876/how-to-redirect-404-errors-to-a-page-in-expressjs
+with an assist from Khalid Mohamud on the syntax for the new route. We were close, but had the wrong syntax.
 
