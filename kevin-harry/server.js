@@ -29,7 +29,7 @@ app.post('/articles', (request, response) => {
   response.status(201).json(request.body);
 });
 
-//The 404 Route (ALWAYS Keep this as the last route)
+//The 404 Route (ALWAYS Keep this as the last route. app.use may be the better choice to use as it will capture ANY request error not just via get...)
 app.get('*', function (req, res) {
   res.send('what???', 404);
 });
