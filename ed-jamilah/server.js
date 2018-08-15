@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 3000;
 // REVIEWED: POST route needs to parse the body passed in with the request.
 // POST middleware
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.get('/', (request, response) => {
   response.send('We Are Live');
 });
@@ -18,3 +19,12 @@ app.post('/articles', (request, response) => {
 });
 
 app.listen(PORT, () => console.log('Are We Live'));
+
+// app.use('*', )
+app.use((reqeust, response) => {
+  response.status(404).send('404 ERROR: CODER HAS NOT HAD ENOUGH COFFE');
+})
+
+app.get('/new-article', (reqeust, response) =>{
+  response.sendFile('new.html', {root: '.public'});
+});
