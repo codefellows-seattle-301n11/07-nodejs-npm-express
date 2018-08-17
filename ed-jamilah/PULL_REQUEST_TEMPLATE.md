@@ -1,5 +1,5 @@
 #### 07-nodejs-npm-express
-**Ed and Jamilah worked together pair programming this lab excercide. It took about 4 hours**
+**Ed and Jamilah worked together pair programming this lab excercise. It took about 6 hours**
 
 #### Reflect and summarize on your process for each `TODO` item :  
   1. First, cloned the repository
